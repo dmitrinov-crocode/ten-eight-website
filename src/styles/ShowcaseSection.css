@@ -24,18 +24,23 @@
 
 .showcase__image {
   background: linear-gradient(90deg, #cbff00 0%, #07f499 100%);
-  /* border: 1px solid var(--white-7); */
-  flex: 1 0 0;
-  height: 100%;
-  min-width: 0;
+  position: absolute;
+  inset: 0;
   overflow: hidden;
-  position: relative;
   border-radius: 12px;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+  pointer-events: none;
+}
+
+.showcase__image--active {
+  opacity: 1;
+  pointer-events: auto;
 }
 
 .showcase__pagination {
   position: absolute;
-  bottom: 7px;
+  bottom: 11px;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
@@ -48,6 +53,8 @@
 .showcase__dot {
   border-radius: 100px;
   flex-shrink: 0;
+  cursor: pointer;
+  transition: width 0.3s ease, background 0.3s ease;
 }
 
 .showcase__dot--active {
@@ -78,7 +85,7 @@
   position: absolute;
   height: 495px;
   left: -1px;
-  top: -49px;
+  top: -45px;
   width: 846px;
   object-fit: cover;
   object-position: bottom;
