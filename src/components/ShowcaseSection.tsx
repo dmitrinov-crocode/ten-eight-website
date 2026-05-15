@@ -1,8 +1,14 @@
 import React, { useState, useEffect, useRef } from 'react';
 import '../styles/ShowcaseSection.css';
 
-const SLIDE_COUNT = 4;
+const SLIDE_COUNT = 3;
 const AUTOPLAY_INTERVAL = 3000;
+
+const images = [
+  '/image/fighter-1.png',
+  '/image/fighter-2.png',
+  '/image/fighter-3.png'
+];
 
 const ShowcaseSection: React.FC = () => {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -20,7 +26,7 @@ const ShowcaseSection: React.FC = () => {
     return () => {
       if (intervalRef.current) clearInterval(intervalRef.current);
     };
-  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+  }, []);
 
   const handleDotClick = (index: number) => {
     setActiveIndex(index);
@@ -30,25 +36,20 @@ const ShowcaseSection: React.FC = () => {
   return (
     <section className="showcase">
       <div className="showcase__image-container">
-        {Array.from({ length: SLIDE_COUNT }).map((_, i) => (
+        {images.map((image, i) => (
           <div
             key={i}
             className={`showcase__image${activeIndex === i ? ' showcase__image--active' : ''}`}
           >
             <img
-              src="/backgrounds/group-ten-eight.svg"
-              alt=""
-              className="showcase__wireframe"
-            />
-            <img
-              src="/image/man.png"
-              alt="Fighter"
-              className="showcase__man"
+              src={image}
+              alt={`Slide ${i + 1}`}
+              className="showcase__slide-image"
             />
           </div>
         ))}
         <div className="showcase__pagination">
-          {Array.from({ length: SLIDE_COUNT }).map((_, i) => (
+          {images.map((_, i) => (
             <div
               key={i}
               className={`showcase__dot ${activeIndex === i ? 'showcase__dot--active' : 'showcase__dot--inactive'}`}
@@ -61,5 +62,6 @@ const ShowcaseSection: React.FC = () => {
     </section>
   );
 };
+
 
 export default ShowcaseSection;

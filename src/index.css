@@ -7,6 +7,7 @@
   --white-30: rgba(245, 245, 245, 0.3);
   --white-7: rgba(245, 245, 245, 0.07);
   --white-3: rgba(245, 245, 245, 0.03);
+  --white-solid: #F5F5F5;
   --gradient-start: #cbff00;
   --gradient-end: #07f499;
 }

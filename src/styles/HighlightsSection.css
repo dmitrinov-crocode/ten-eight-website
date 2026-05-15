@@ -179,6 +179,7 @@
   pointer-events: none;
   z-index: 0;
   filter: grayscale(100%) brightness(1.05) contrast(0.95);
+  transform: scaleX(-1);
 }
 
 .highlights__qr-wrapper {
