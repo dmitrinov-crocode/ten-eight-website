@@ -47,7 +47,7 @@ const HighlightsSection: React.FC = () => {
             className="highlights__fighter-img highlights__fighter-img--desktop"
           />
           <img
-            src="/image/fighter-mobile.png"
+            src="/image/fighter.png"
             alt="Fighter"
             className="highlights__fighter-img highlights__fighter-img--mobile"
           />
