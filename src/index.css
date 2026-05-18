@@ -19,6 +19,7 @@
 }
 
 html, body {
+  scroll-behavior: smooth;
   background-color: var(--black-solid);
   color: white;
   font-family: 'Geist', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;

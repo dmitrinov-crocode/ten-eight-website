@@ -3,7 +3,7 @@
   min-height: 100vh;
   background-color: var(--black-solid);
   position: relative;
-  overflow: hidden;
+  overflow: clip;
   display: flex;
   flex-direction: column;
   align-items: center;
