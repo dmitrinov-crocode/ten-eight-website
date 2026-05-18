@@ -44,7 +44,12 @@ const HighlightsSection: React.FC = () => {
           <img
             src="/image/fighter.png"
             alt="Fighter"
-            className="highlights__fighter-img"
+            className="highlights__fighter-img highlights__fighter-img--desktop"
+          />
+          <img
+            src="/image/fighter-mobile.png"
+            alt="Fighter"
+            className="highlights__fighter-img highlights__fighter-img--mobile"
           />
           <div className="highlights__qr-wrapper">
             <img

@@ -113,8 +113,8 @@
   display: flex;
   flex: 1 0 0;
   gap: 24px;
-  align-items: center;
-  justify-content: center;
+  align-items: flex-start;
+  justify-content: flex-start;
   min-width: 0;
   overflow: hidden;
   padding: 24px;

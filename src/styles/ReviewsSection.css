@@ -52,7 +52,7 @@
 .reviews__row {
   display: flex;
   gap: 24px;
-  align-items: flex-start;
+  align-items: stretch;
   flex-shrink: 0;
   width: 100%;
 }
