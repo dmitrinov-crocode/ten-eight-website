@@ -12,10 +12,10 @@ interface FeatureCard {
 const cards: FeatureCard[] = [
   {
     number: '1',
-    title: 'Fight Betting Insights',
-    subtitle: 'Personalized fight picks',
-    description: 'Get matchup breakdowns and odds-driven insights built around the fights you care about',
-    tags: ['Odds', 'Match Up'],
+    title: 'Powered by Polymarket',
+    subtitle: 'Bet through prediction markets',
+    description: 'Place fight predictions and follow real-time community sentiment before every matchup',
+    tags: ['Polymarket', 'Live Odds'],
   },
   {
     number: '2',

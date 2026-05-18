@@ -10,6 +10,12 @@ const images = [
   '/image/fighter-3.png'
 ];
 
+const images_mobile = [
+  '/image/fighter-1-mobile.png',
+  '/image/fighter-2-mobile.png',
+  '/image/fighter-3-mobile.png'
+];
+
 const ShowcaseSection: React.FC = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);

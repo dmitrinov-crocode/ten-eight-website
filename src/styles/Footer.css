@@ -32,6 +32,7 @@
   aspect-ratio: 59/25;
   flex-shrink: 0;
   position: relative;
+  padding: 12px 20px;
 }
 
 .footer__logo img {
@@ -41,6 +42,7 @@
   height: 100%;
   object-fit: contain;
 }
+
 
 .footer__links {
   display: flex;
@@ -67,4 +69,32 @@
 
 .footer__link p {
   line-height: normal;
+}
+
+@media (max-width: 768px) {
+  .footer {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 24px 60px 30px;
+  }
+
+  .footer__logo {
+    width: 59px;
+    height: 25px;
+    aspect-ratio: 59/25;
+    order: 1;
+    margin-bottom: 12px;
+  }
+
+  .footer__copy {
+    order: 2;
+    font-size: 14px;
+  }
+
+  .footer__links {
+    order: 3;
+    font-size: 14px;
+  }
 }

@@ -159,3 +159,53 @@
   height: 1px;
   background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.07) 20%, rgba(255,255,255,0.07) 80%, transparent 100%);
 }
+
+@media (max-width: 768px) {
+  .reviews {
+    padding: 48px 30px;
+    gap: 24px;
+  }
+
+  .reviews__title {
+    font-size: 32px;
+    line-height: normal;
+    width: 100%;
+  }
+
+  .reviews__subtitle {
+    font-size: 14px;
+    width: 100%;
+  }
+
+  .reviews__row {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .reviews__card {
+    flex: none;
+    width: 100%;
+  }
+
+  .reviews__card-avatar {
+    width: 28px;
+    height: 28px;
+  }
+
+  .reviews__card-name {
+    font-size: 12px;
+  }
+
+  .reviews__card-quote {
+    font-size: 12px;
+    line-height: normal;
+  }
+
+  .reviews__card-quote-wrap {
+    padding: 0;
+  }
+
+  .reviews__list {
+    padding: 20px 0;
+  }
+}

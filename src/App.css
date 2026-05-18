@@ -56,3 +56,33 @@ main {
   z-index: 1;
   padding-top: 109px;
 }
+
+@media (max-width: 768px) {
+  main {
+    padding-top: 89px;
+  }
+
+  .page__bg-blob--4 {
+    width: min(280px, 75vw);
+    top: 0;
+    left: -40px;
+  }
+
+  .page__bg-blob--5 {
+    top: 500px;
+    right: -40px;
+    width: min(260px, 70vw);
+  }
+
+  .page__bg-blob--6 {
+    top: 1100px;
+    right: -60px;
+    width: min(400px, 110vw);
+  }
+
+  .page__bg-blob--7 {
+    top: 2200px;
+    left: -60px;
+    width: min(320px, 85vw);
+  }
+}

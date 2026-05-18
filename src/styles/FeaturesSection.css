@@ -238,3 +238,83 @@
   height: 1px;
   background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.07) 20%, rgba(255,255,255,0.07) 80%, transparent 100%);
 }
+
+@media (max-width: 768px) {
+  .features {
+    padding: 30px 30px 60px;
+    gap: 32px;
+  }
+
+  .features__header {
+    gap: 12px;
+  }
+
+  .features__title-block {
+    gap: 0;
+  }
+
+  .features__subtitle {
+    font-size: 18px;
+  }
+
+  .features__title-row {
+    gap: 12px;
+  }
+
+  .features__title-gradient {
+    font-size: 40px;
+    line-height: 40px;
+  }
+
+  .features__title-white {
+    font-size: 24px;
+  }
+
+  .features__description {
+    font-size: 12px;
+    width: 100%;
+  }
+
+  .features__row {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .features__card {
+    flex: none;
+    width: 100%;
+    padding-top: 24px;
+    padding-bottom: 16px;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .features__card-number {
+    font-size: 96px;
+    right: 26px;
+    top: 10px;
+  }
+
+  .features__card-title {
+    font-size: 18px;
+    line-height: normal;
+  }
+
+  .features__card-subtitle {
+    font-size: 10px;
+    line-height: normal;
+  }
+
+  .features__card-text {
+    font-size: 12px;
+  }
+
+  .features__card-tag {
+    font-size: 10px;
+    padding: 8px 16px;
+  }
+
+  .features__list {
+    padding: 0;
+  }
+}

@@ -54,6 +54,22 @@ const HeroSection: React.FC = () => {
           <img src="/icon/vector_201.svg" alt="" className="hero__vector201" />
         </div>
       </div>
+
+      <div className="hero__mobile-phones">
+        <div className="hero__mobile-phone-wrapper">
+          <div className="hero__mobile-teneight-wrap">
+            <img src="/icon/ten-eight-mobile.svg" alt="" className="hero__mobile-teneight" />
+          </div>
+          <img src="/backgrounds/ellipse_8.svg" alt="" className="hero__mobile-ellipse" />
+          <img src="/icon/vector_202.svg" alt="" className="hero__mobile-vector202" />
+          <img src="/image/phone_2.png" alt="" className="hero__mobile-phone2" />
+          <div className="hero__mobile-phone1-wrap">
+            <img src="/image/phone_1.png" alt="" className="hero__mobile-phone1" />
+          </div>
+          <img src="/icon/vector_201.svg" alt="" className="hero__mobile-vector201" />
+        </div>
+      </div>
+
       <div className="hero__bottom-line" />
     </section>
   );

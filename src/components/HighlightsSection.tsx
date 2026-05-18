@@ -59,3 +59,4 @@ const HighlightsSection: React.FC = () => {
 };
 
 export default HighlightsSection;
+
