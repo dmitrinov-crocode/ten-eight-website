@@ -21,13 +21,12 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "postbuild": "react-snap && node scripts/inline-critical-css.js",
+    "postbuild": "node scripts/prerender.js && node scripts/inline-critical-css.js",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
   "reactSnap": {
     "source": "build",
-    "puppeteerExecutablePath": "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
     "puppeteerArgs": [
       "--no-sandbox",
       "--disable-setuid-sandbox"
