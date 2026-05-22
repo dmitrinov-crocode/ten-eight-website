@@ -26,7 +26,7 @@ const HeroSection: React.FC = () => {
             <img src="/icon/qr-code.svg" alt="Scan QR code to download the 10-8 fight app" className="hero__qr-img" />
           </div>
           <div className="hero__store-btns-col">
-            <a href="#" className="hero__store-btn">
+            <button type="button" className="hero__store-btn">
               <span className="hero__store-icon">
                 <img src="/icon/apple.svg" alt="Download 10-8 on the Apple App Store" />
               </span>
@@ -34,8 +34,8 @@ const HeroSection: React.FC = () => {
                 <span className="hero__store-label">Download on the</span>
                 <span className="hero__store-name">App Store</span>
               </span>
-            </a>
-            <a href="#" className="hero__store-btn">
+            </button>
+            <button type="button" className="hero__store-btn">
               <span className="hero__store-icon">
                 <img src="/icon/google_play.svg" alt="Get 10-8 on Google Play" />
               </span>
@@ -43,7 +43,7 @@ const HeroSection: React.FC = () => {
                 <span className="hero__store-label">Get it now</span>
                 <span className="hero__store-name">Google Play</span>
               </span>
-            </a>
+            </button>
           </div>
         </div>
       </div>

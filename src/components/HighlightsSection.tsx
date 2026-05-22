@@ -17,7 +17,7 @@ const HighlightsSection: React.FC = () => {
         </div>
         <div className="highlights__buttons">
           <div className="highlights__buttons-col">
-            <a href="#" className="highlights__store-btn">
+            <button type="button" className="highlights__store-btn">
               <span className="highlights__store-icon">
                 <img src="/icon/apple.svg" alt="Download 10-8 on the Apple App Store" />
               </span>
@@ -25,8 +25,8 @@ const HighlightsSection: React.FC = () => {
                 <span className="highlights__store-label">Download on the</span>
                 <span className="highlights__store-name">App Store</span>
               </span>
-            </a>
-            <a href="#" className="highlights__store-btn">
+            </button>
+            <button type="button" className="highlights__store-btn">
               <span className="highlights__store-icon">
                 <img src="/icon/google_play.svg" alt="Get 10-8 on Google Play" />
               </span>
@@ -34,7 +34,7 @@ const HighlightsSection: React.FC = () => {
                 <span className="highlights__store-label highlights__store-label--google">Get it now</span>
                 <span className="highlights__store-name">Google Play</span>
               </span>
-            </a>
+            </button>
           </div>
         </div>
       </div>
