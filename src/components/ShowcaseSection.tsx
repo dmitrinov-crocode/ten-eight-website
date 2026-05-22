@@ -6,14 +6,21 @@ const AUTOPLAY_INTERVAL = 3000;
 
 const images = [
   '/image/fighter-1.png',
-  '/image/fighter-2.png',
-  '/image/fighter-3.png'
+  '/image/fighter-3.png',
+  '/image/fighter-2.png'
 ];
 
 const images_mobile = [
   '/image/fighter-1-mobile.png',
-  '/image/fighter-2-mobile.png',
-  '/image/fighter-3-mobile.png'
+  '/image/fighter-3-mobile.png',
+  '/image/fighter-2-mobile.png'
+
+];
+
+const slideAlts = [
+  '10-8 app showcasing live fight odds powered by Polymarket',
+  '10-8 app showcasing the live fight news feed and updates',
+  '10-8 app showcasing insider picks from ex-fighters',
 ];
 
 const ShowcaseSection: React.FC = () => {
@@ -47,16 +54,26 @@ const ShowcaseSection: React.FC = () => {
             key={i}
             className={`showcase__image${activeIndex === i ? ' showcase__image--active' : ''}`}
           >
-            <img
-              src={image}
-              alt={`Slide ${i + 1}`}
-              className="showcase__slide-image showcase__slide-image--desktop"
-            />
-            <img
-              src={images_mobile[i]}
-              alt={`Slide ${i + 1}`}
-              className="showcase__slide-image showcase__slide-image--mobile"
-            />
+            <picture>
+              <source type="image/webp" srcSet={image.replace(/\.png$/, '.webp')} />
+              <img
+                src={image}
+                alt={slideAlts[i]}
+                className="showcase__slide-image showcase__slide-image--desktop"
+                loading="lazy"
+                decoding="async"
+              />
+            </picture>
+            <picture>
+              <source type="image/webp" srcSet={images_mobile[i].replace(/\.png$/, '.webp')} />
+              <img
+                src={images_mobile[i]}
+                alt={slideAlts[i]}
+                className="showcase__slide-image showcase__slide-image--mobile"
+                loading="lazy"
+                decoding="async"
+              />
+            </picture>
           </div>
         ))}
         <div className="showcase__pagination">

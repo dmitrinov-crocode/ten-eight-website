@@ -29,7 +29,7 @@ const ReviewsSection: React.FC = () => {
   return (
     <section className="reviews" id="reviews">
       <div className="reviews__header">
-        <p className="reviews__title">Loved by Every User</p>
+        <h2 className="reviews__title">Loved by Every User</h2>
         <p className="reviews__subtitle">Fast, focused, and built for serious fight watchers</p>
       </div>
       <div className="reviews__list">
@@ -38,14 +38,14 @@ const ReviewsSection: React.FC = () => {
             <div key={review.name} className="reviews__card">
               <div className="reviews__card-user">
                 <div className="reviews__card-avatar-group">
-                  <img src={review.avatar} alt={review.name} className="reviews__card-avatar" />
+                  <img src={review.avatar} alt={`Avatar of ${review.name}, 10-8 app user`} className="reviews__card-avatar" loading="lazy" decoding="async" />
                   <div className="reviews__card-name-group">
                     <p className="reviews__card-name">{review.name}</p>
                   </div>
                 </div>
                 <img
                   src="/icon/stars.svg"
-                  alt="5 stars"
+                  alt="5 out of 5 stars rating"
                   className="reviews__stars"
                 />
               </div>

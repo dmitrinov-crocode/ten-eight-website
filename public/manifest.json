@@ -1,11 +1,13 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "10-8",
+  "name": "10-8 — Every Fight Starts Here",
+  "description": "Track fight bets, follow live fight news, join fantasy leagues, and get insider picks from ex-fighters.",
   "icons": [
     {
-      "src": "favicon.ico",
-      "sizes": "64x64 32x32 24x24 16x16",
-      "type": "image/x-icon"
+      "src": "icon/logo.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
     },
     {
       "src": "logo192.png",
@@ -20,6 +22,9 @@
   ],
   "start_url": ".",
   "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "orientation": "portrait",
+  "theme_color": "#0d0d0d",
+  "background_color": "#0d0d0d",
+  "lang": "en-US",
+  "categories": ["sports", "entertainment"]
 }

@@ -11,7 +11,7 @@ const Header: React.FC = () => {
       <header className="header">
         <div className="header__left">
           <div className="header__logo">
-            <img src="/icon/logo.svg" alt="10-8 Logo" />
+            <img src="/icon/logo.svg" alt="10-8 fight app logo" />
           </div>
           <nav className="header__nav">
             <a href="#features">Features</a>

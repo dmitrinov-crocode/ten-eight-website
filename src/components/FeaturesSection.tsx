@@ -58,13 +58,13 @@ const FeaturesSection: React.FC = () => {
   return (
     <section className="features" id="features">
       <div className="features__header">
-        <div className="features__title-block">
-          <p className="features__subtitle">Everything You Need to Stay</p>
-          <div className="features__title-row">
-            <p className="features__title-gradient">Ahead</p>
-            <p className="features__title-white">of Fight Night</p>
-          </div>
-        </div>
+        <h2 className="features__title-block">
+          <span className="features__subtitle">Everything You Need to Stay</span>
+          <span className="features__title-row">
+            <span className="features__title-gradient">Ahead</span>
+            <span className="features__title-white">of Fight Night</span>
+          </span>
+        </h2>
         <div className="features__description">
           <p>Built for quick decisions, live updates, </p>
           <p>and sharp fight insight</p>

@@ -1,0 +1,38 @@
+[build]
+  publish = "build"
+  command = "npm run build"
+
+# Trailing-slash policy: every internal link in the app uses the trailing-
+# slash form (e.g. /terms/), and react-snap generates build/terms/index.html
+# accordingly. Netlify serves /terms (no slash) by 301-redirecting to /terms/.
+# This is intentional and SEO-clean — just make sure outbound links use the
+# canonical /terms/ form (the Footer does).
+
+# SPA fallback. react-snap creates a static HTML for every route declared in
+# package.json -> reactSnap.include, so /terms/ and /privacy/ are served as
+# real files (Netlify hits those before this rule). Anything else falls
+# through to the React Router catchall.
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# --- Production domain redirects ---------------------------------------------
+# Uncomment ONE of the blocks below when you point a custom domain at this
+# site, depending on which host you want as the primary. The audit's
+# "WWW and non-WWW work as separate websites" critical will resolve once
+# both hostnames respond and one 301-redirects to the other.
+
+# Primary = www  (matches the current <link rel="canonical">)
+# [[redirects]]
+#   from = "https://10-8.gg/*"
+#   to = "https://www.10-8.gg/:splat"
+#   status = 301
+#   force = true
+
+# Primary = apex (if you'd rather drop the www)
+# [[redirects]]
+#   from = "https://www.10-8.gg/*"
+#   to = "https://10-8.gg/:splat"
+#   status = 301
+#   force = true

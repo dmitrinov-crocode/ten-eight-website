@@ -2,17 +2,155 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" href="%PUBLIC_URL%/icon/logo.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Defaults for crawlers that don't execute JS. At runtime each page's
+         useDocumentHead() updates these in place (never appends a duplicate),
+         so the live DOM ends up with exactly one of each. react-snap captures
+         the post-effect state per route, so /terms/ and /privacy/ ship with
+         their own page-specific title/description/canonical in static HTML. -->
+    <title>10-8 — Every Fight Starts Here | Bets, News &amp; Fantasy</title>
+    <meta
+      name="description"
+      content="10-8 is the all-in-one fight app: place predictions through Polymarket, follow live fight news, join fantasy leagues, and get insider picks from ex-fighters."
+    />
+    <link rel="canonical" href="https://www.10-8.gg/" />
+    <meta name="keywords" content="fight betting app, fight predictions, Polymarket fights, fantasy fight leagues, MMA odds, boxing predictions, fight news, insider fighter picks" />
+    <meta name="author" content="10-8" />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
     <meta name="theme-color" content="#0d0d0d" />
-    <meta name="description" content="10-8 — Every Fight Starts Here. Track fight bets, follow fight news, join fantasy leagues." />
+    <meta name="application-name" content="10-8" />
+    <meta name="apple-mobile-web-app-title" content="10-8" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="format-detection" content="telephone=no" />
+
+    <!-- Icon & manifest. Same SVG wordmark as <Header>/<Footer>. -->
+    <link rel="icon" href="%PUBLIC_URL%/icon/logo.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+
+    <link rel="preload" as="image" type="image/webp" href="%PUBLIC_URL%/image/phone_2.webp" fetchpriority="high" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="10-8" />
+    <meta property="og:title" content="10-8 — Every Fight Starts Here" />
+    <meta
+      property="og:description"
+      content="Place predictions through Polymarket, follow live fight news, join fantasy leagues, and get insider picks from ex-fighters. Every fight starts here."
+    />
+    <meta property="og:url" content="https://www.10-8.gg/" />
+    <meta property="og:image" content="https://www.10-8.gg/logo512.png" />
+    <meta property="og:image:width" content="512" />
+    <meta property="og:image:height" content="512" />
+    <meta property="og:image:alt" content="10-8 — Every Fight Starts Here" />
+    <meta property="og:locale" content="en_US" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="10-8 — Every Fight Starts Here" />
+    <meta
+      name="twitter:description"
+      content="Place predictions through Polymarket, follow live fight news, join fantasy leagues, and get insider picks from ex-fighters."
+    />
+    <meta name="twitter:image" content="https://www.10-8.gg/logo512.png" />
+    <meta name="twitter:image:alt" content="10-8 — Every Fight Starts Here" />
+
+    <!-- Fonts (non-render-blocking: preload + media swap, with <noscript> fallback) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&display=swap" rel="stylesheet" />
-    <title>10-8 — Every Fight Starts Here</title>
+    <link
+      rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&display=swap"
+      media="print"
+      onload="this.media='all'"
+    />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&display=swap"
+      />
+    </noscript>
+
+    <!-- Structured data -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "WebSite",
+            "@id": "https://www.10-8.gg/#website",
+            "url": "https://www.10-8.gg/",
+            "name": "10-8",
+            "description": "Track fight bets, follow live fight news, join fantasy leagues, and get insider picks from ex-fighters.",
+            "inLanguage": "en-US",
+            "publisher": { "@id": "https://www.10-8.gg/#organization" }
+          },
+          {
+            "@type": "Organization",
+            "@id": "https://www.10-8.gg/#organization",
+            "name": "10-8",
+            "url": "https://www.10-8.gg/",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://www.10-8.gg/logo512.png",
+              "width": 512,
+              "height": 512
+            }
+          },
+          {
+            "@type": "MobileApplication",
+            "@id": "https://www.10-8.gg/#app",
+            "name": "10-8",
+            "operatingSystem": "iOS, Android",
+            "applicationCategory": "SportsApplication",
+            "url": "https://www.10-8.gg/",
+            "description": "10-8 is the all-in-one fight app: place predictions through Polymarket, follow live fight news, join fantasy leagues, and get insider picks from ex-fighters who know who has the edge.",
+            "publisher": { "@id": "https://www.10-8.gg/#organization" },
+            "offers": {
+              "@type": "Offer",
+              "price": "0",
+              "priceCurrency": "USD"
+            },
+            "aggregateRating": {
+              "@type": "AggregateRating",
+              "ratingValue": "5",
+              "bestRating": "5",
+              "ratingCount": "3"
+            },
+            "review": [
+              {
+                "@type": "Review",
+                "author": { "@type": "Person", "name": "Maya R." },
+                "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+                "reviewBody": "Checking odds and news in one place makes fight night way easier"
+              },
+              {
+                "@type": "Review",
+                "author": { "@type": "Person", "name": "Jordan K." },
+                "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+                "reviewBody": "The ex-fighter picks are the best part. It feels like getting inside info"
+              },
+              {
+                "@type": "Review",
+                "author": { "@type": "Person", "name": "Alyssa S." },
+                "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+                "reviewBody": "Fantasy leagues and fight news keep me locked in all week"
+              }
+            ]
+          }
+        ]
+      }
+    </script>
   </head>
   <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <noscript>You need to enable JavaScript to run the 10-8 app.</noscript>
     <div id="root"></div>
   </body>
 </html>
