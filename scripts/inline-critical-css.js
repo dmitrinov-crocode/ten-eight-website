@@ -21,6 +21,17 @@
 const fs = require('fs');
 const path = require('path');
 
+// This is a post-react-snap cleanup step. When prerendering is skipped on
+// CI/serverless (see scripts/prerender.js) there are no snapshots to clean,
+// so skip here too to keep both steps in sync.
+const isCI =
+  !!process.env.VERCEL ||
+  (process.env.CI && process.env.CI !== 'false' && process.env.CI !== '0');
+if (isCI) {
+  console.log('inline-critical-css: CI/serverless detected, skipping.');
+  process.exit(0);
+}
+
 const buildDir = path.resolve('build');
 const fontHref =
   'https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&display=swap';

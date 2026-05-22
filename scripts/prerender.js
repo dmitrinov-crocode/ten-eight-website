@@ -11,6 +11,19 @@
 //      `npm install`, which is what CI/Vercel uses).
 const fs = require('fs');
 const path = require('path');
+
+// Headless-Chrome prerendering can't run on most CI/serverless build images
+// (e.g. Vercel) because their containers lack Chromium's shared libraries
+// (libnss3 et al.) and can't apt-install them. Skip prerendering there and
+// ship the plain CRA SPA. Local builds (and Netlify) still prerender.
+const isCI =
+  !!process.env.VERCEL ||
+  (process.env.CI && process.env.CI !== 'false' && process.env.CI !== '0');
+if (isCI) {
+  console.log('prerender: CI/serverless detected, skipping react-snap.');
+  process.exit(0);
+}
+
 const { run } = require('react-snap');
 
 const pkg = require(path.resolve(__dirname, '..', 'package.json'));
