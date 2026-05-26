@@ -71,8 +71,8 @@
 
 .hero__title-line1 {
   font-family: 'Geist', sans-serif;
-  font-weight: 700;
-  font-size: 48px;
+  font-weight: 600;
+  font-size: 40px;
   color: white;
   line-height: normal;
   margin-bottom: -15px;
@@ -168,8 +168,8 @@
 
 .hero__store-label {
   font-family: 'Geist', sans-serif;
-  font-weight: 500;
-  font-size: 14px;
+  font-weight: 400;
+  font-size: 12px;
   line-height: 24px;
   color: var(--white-50);
   margin-bottom: -3px;
@@ -179,7 +179,7 @@
 .hero__store-name {
   font-family: 'Geist', sans-serif;
   font-weight: 600;
-  font-size: 20px;
+  font-size: 18px;
   line-height: 28px;
   color: var(--white-85);
   display: block;
@@ -232,11 +232,11 @@
 
 .hero__phone2 {
   position: absolute;
-  width: 796px;
-  height: 597px;
-  left: -29px;
-  top: -70px;
-  object-fit: cover;
+  width: 706px;
+  height: 623px;
+  left: -78px;
+  top: -24px;
+  object-fit: contain;
   z-index: 3;
   pointer-events: none;
   display: block;
@@ -325,13 +325,15 @@
 
 .hero__mobile-phone2 {
   position: absolute;
-  width: 536.868px;
-  height: 402.651px;
-  left: -16px;
-  top: -47.23px;
-  object-fit: cover;
+  width: 374px;
+  height: 461px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  object-fit: contain;
   z-index: 3;
   pointer-events: none;
+  display: block;
 }
 
 .hero__mobile-phone1-wrap {
