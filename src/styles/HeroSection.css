@@ -233,9 +233,9 @@
 .hero__phone2 {
   position: absolute;
   width: 706px;
-  height: 623px;
+  height: 737px;
   left: -78px;
-  top: -24px;
+  top: -81px;
   object-fit: contain;
   z-index: 3;
   pointer-events: none;
@@ -326,7 +326,7 @@
 .hero__mobile-phone2 {
   position: absolute;
   width: 374px;
-  height: 461px;
+  height: 390px;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);

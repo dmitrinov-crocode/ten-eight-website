@@ -15,8 +15,7 @@ const sharp = require('sharp');
 // width cap = ~2x the largest place each image is rendered (see *.css).
 // withoutEnlargement keeps already-small sources untouched (just re-encoded).
 const targets = [
-  { file: 'public/image/phone_1.png', width: 1600 }, // hero phone, displayed ~800px
-  { file: 'public/image/phone_2.png', width: 1600 },
+  { file: 'public/image/hero-mobile.png', width: 1412 }, // shared hero composite, rendered ~706px on desktop
   { file: 'public/image/fighter.png', width: 1300 }, // highlights, wrapper 645px
   { file: 'public/image/fighter-1.png', width: 1100 }, // showcase desktop slide
   { file: 'public/image/fighter-2.png', width: 1100 },
