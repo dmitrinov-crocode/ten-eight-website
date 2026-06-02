@@ -31,7 +31,8 @@
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
 
-    <link rel="preload" as="image" type="image/webp" href="%PUBLIC_URL%/image/hero-mobile.webp" fetchpriority="high" />
+    <link rel="preload" as="image" type="image/webp" href="%PUBLIC_URL%/image/hero-desktop.webp" media="(min-width: 1200px)" fetchpriority="high" />
+    <link rel="preload" as="image" type="image/webp" href="%PUBLIC_URL%/image/hero-mobile.webp" media="(max-width: 1199px)" fetchpriority="high" />
 
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="10-8" />

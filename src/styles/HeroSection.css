@@ -233,9 +233,9 @@
 .hero__phone2 {
   position: absolute;
   width: 706px;
-  height: 737px;
+  height: 623px;
   left: -78px;
-  top: -81px;
+  top: -24px;
   object-fit: contain;
   z-index: 3;
   pointer-events: none;

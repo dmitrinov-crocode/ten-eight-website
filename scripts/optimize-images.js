@@ -14,8 +14,12 @@ const sharp = require('sharp');
 
 // width cap = ~2x the largest place each image is rendered (see *.css).
 // withoutEnlargement keeps already-small sources untouched (just re-encoded).
+// `palette: false` keeps full truecolor (for photographic mockups where 256-color
+// quantization causes visible banding). Note the webp variants below are encoded
+// FROM the on-disk PNG, so a clean PNG also means a clean webp.
 const targets = [
-  { file: 'public/image/hero-mobile.png', width: 1412 }, // shared hero composite, rendered ~706px on desktop
+  { file: 'public/image/hero-desktop.png', width: 1412, palette: false }, // hero composite, 706px slot @2x
+  { file: 'public/image/hero-mobile.png', width: 1124, palette: false }, // hero composite, ~374px slot @3x (high-DPR phones)
   { file: 'public/image/fighter.png', width: 1300 }, // highlights, wrapper 645px
   { file: 'public/image/fighter-1.png', width: 1100 }, // showcase desktop slide
   { file: 'public/image/fighter-2.png', width: 1100 },
@@ -64,41 +68,49 @@ const kb = (n) => `${(n / 1024).toFixed(0)} KB`;
     );
   }
 
-  for (const { file, width } of targets) {
-    const abs = path.resolve(file);
-    const orig = fs.statSync(abs).size;
-    const buf = await sharp(abs)
-      .resize({ width, withoutEnlargement: true })
-      .png({ palette: true, quality: 80, effort: 10, compressionLevel: 9 })
-      .toBuffer();
-    // Only write if we actually made it smaller.
-    if (buf.length < orig) fs.writeFileSync(abs, buf);
-    const now = fs.statSync(abs).size;
-    before += orig;
-    after += now;
-    const pct = (100 - (now / orig) * 100).toFixed(0);
-    console.log(`${file.padEnd(34)} ${kb(orig).padStart(8)} -> ${kb(now).padStart(8)}  (-${pct}%)`);
-  }
-  // Emit .webp next to each referenced PNG so components can serve it via
-  // <picture><source type="image/webp"> ... <img src=".png" ... /></picture>.
+  // One resize per file, branched with clone() into PNG + WebP. Crucially the
+  // WebP is encoded from the same truecolor pipeline, NOT from the (possibly
+  // palette-quantized) PNG we just wrote — so the served WebP never inherits
+  // 256-color banding on photographic targets (e.g. the hero mockup gradients).
+  // NOTE: the PNG is overwritten in place, so on a *second* run the source is
+  // already quantized; keep the hi-res originals if you need to re-optimize.
   console.log('\n--- WebP variants ---');
   let webpPng = 0;
   let webpOut = 0;
-  for (const { file, width } of targets) {
-    const absPng = path.resolve(file);
-    const absWebp = absPng.replace(/\.png$/i, '.webp');
-    const pngSize = fs.statSync(absPng).size;
-    const buf = await sharp(absPng)
-      .resize({ width, withoutEnlargement: true })
-      .webp({ quality: 78, effort: 6, alphaQuality: 90 })
+  for (const { file, width, palette = true } of targets) {
+    const abs = path.resolve(file);
+    const orig = fs.statSync(abs).size;
+    const resized = sharp(abs).resize({ width, withoutEnlargement: true });
+
+    const pngBuf = await resized
+      .clone()
+      .png({ palette: true, quality: 80, effort: 10, compressionLevel: 9 })
       .toBuffer();
-    fs.writeFileSync(absWebp, buf);
-    webpPng += pngSize;
-    webpOut += buf.length;
+    // Only write if we actually made it smaller.
+    if (pngBuf.length < orig) fs.writeFileSync(abs, pngBuf);
+    const nowPng = fs.statSync(abs).size;
+    before += orig;
+    after += nowPng;
     console.log(
-      `${path.relative(process.cwd(), absWebp).padEnd(34)} ${kb(pngSize).padStart(8)} (png) -> ${kb(
-        buf.length
-      ).padStart(8)} (webp)  (-${(100 - (buf.length / pngSize) * 100).toFixed(0)}%)`
+      `${file.padEnd(34)} ${kb(orig).padStart(8)} -> ${kb(nowPng).padStart(8)}  (-${(
+        100 -
+        (nowPng / orig) * 100
+      ).toFixed(0)}%)`
+    );
+
+    // full-color (photographic) targets get a higher webp quality.
+    const webpBuf = await resized
+      .clone()
+      .webp({ quality: palette ? 78 : 86, effort: 6, alphaQuality: 90 })
+      .toBuffer();
+    const absWebp = abs.replace(/\.png$/i, '.webp');
+    fs.writeFileSync(absWebp, webpBuf);
+    webpPng += nowPng;
+    webpOut += webpBuf.length;
+    console.log(
+      `${path.relative(process.cwd(), absWebp).padEnd(34)} ${kb(nowPng).padStart(8)} (png) -> ${kb(
+        webpBuf.length
+      ).padStart(8)} (webp)  (-${(100 - (webpBuf.length / nowPng) * 100).toFixed(0)}%)`
     );
   }
   console.log(

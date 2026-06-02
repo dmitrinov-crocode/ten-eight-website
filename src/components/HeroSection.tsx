@@ -46,9 +46,9 @@ const HeroSection: React.FC = () => {
         <div className="hero__phone-wrapper">
           <img src="/icon/ten-eight.svg" alt="" className="hero__ten-eight-bg" />
           <picture>
-            <source type="image/webp" srcSet="/image/hero-mobile.webp" />
+            <source type="image/webp" srcSet="/image/hero-desktop.webp" />
             <img
-              src="/image/hero-mobile.png"
+              src="/image/hero-desktop.png"
               alt="10-8 fight app on mobile"
               className="hero__phone2"
               fetchPriority="high"
