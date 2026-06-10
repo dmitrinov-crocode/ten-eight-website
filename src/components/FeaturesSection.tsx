@@ -47,8 +47,8 @@ const FeaturesSection: React.FC = () => {
         <h2 className="features__title-block">
           <span className="features__subtitle">Everything You Need to Stay</span>
           <span className="features__title-row">
-            <span className="features__title-white">Ahead</span>
-            <span className="features__title-gradient">of Fight Night</span>
+            <span className="features__title-white">Ahead of </span>
+            <span className="features__title-gradient">Fight Night</span>
           </span>
         </h2>
         <div className="features__description">

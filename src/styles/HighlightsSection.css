@@ -84,6 +84,16 @@
   width: 100%;
 }
 
+.highlights__buttons_title {
+  font-family: 'Geist', sans-serif;
+  font-weight: 600;
+  font-size: 18px;
+  color: var(--white-85);
+  line-height: normal;
+  width: min-content;
+  min-width: 100%;
+}
+
 .highlights__buttons-col {
   display: flex;
   flex: 1 0 0;

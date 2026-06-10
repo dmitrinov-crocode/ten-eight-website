@@ -106,6 +106,17 @@
   width: 100%;
 }
 
+.hero__buttons_title {
+  margin-top: 16px;
+  font-family: 'Geist', sans-serif;
+  font-weight: 600;
+  font-size: 18px;
+  color: var(--white-85);
+  line-height: normal;
+  width: min-content;
+  min-width: 100%;
+}
+
 .hero__qr-block {
   width: 159px;
   height: 159px;
@@ -124,7 +135,6 @@
 .hero__store-btns-col {
   display: flex;
   flex: 1 0 0;
-  flex-direction: column;
   gap: 16px;
   min-width: 0;
 }

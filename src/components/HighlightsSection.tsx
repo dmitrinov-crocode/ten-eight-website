@@ -15,6 +15,9 @@ const HighlightsSection: React.FC = () => {
             Built for speed, clarity, and smarter fight decisions
           </p>
         </div>
+        <p className="highlights__buttons_title">
+          Coming Soon:
+        </p>
         <div className="highlights__buttons">
           <div className="highlights__buttons-col">
             <button type="button" className="highlights__store-btn">
@@ -22,7 +25,7 @@ const HighlightsSection: React.FC = () => {
                 <img src="/icon/apple.svg" alt="Download 10-8 on the Apple App Store" />
               </span>
               <span className="highlights__store-text">
-                <span className="highlights__store-label">Download on the</span>
+                {/*<span className="highlights__store-label">Download on the</span>*/}
                 <span className="highlights__store-name">App Store</span>
               </span>
             </button>
@@ -31,7 +34,7 @@ const HighlightsSection: React.FC = () => {
                 <img src="/icon/google_play.svg" alt="Get 10-8 on Google Play" />
               </span>
               <span className="highlights__store-text">
-                <span className="highlights__store-label highlights__store-label--google">Get it now</span>
+                {/*<span className="highlights__store-label highlights__store-label--google">Get it now</span>*/}
                 <span className="highlights__store-name">Google Play</span>
               </span>
             </button>
@@ -61,13 +64,13 @@ const HighlightsSection: React.FC = () => {
               decoding="async"
             />
           </picture>
-          <div className="highlights__qr-wrapper">
-            <img
-              src="/icon/qr-code.svg"
-              alt="Scan QR code to download the 10-8 fight app"
-              className="highlights__qr"
-            />
-          </div>
+          {/*<div className="highlights__qr-wrapper">*/}
+          {/*  <img*/}
+          {/*    src="/icon/qr-code.svg"*/}
+          {/*    alt="Scan QR code to download the 10-8 fight app"*/}
+          {/*    className="highlights__qr"*/}
+          {/*  />*/}
+          {/*</div>*/}
         </div>
       </div>
     </section>
