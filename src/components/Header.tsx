@@ -1,13 +1,27 @@
 import React, { useState } from 'react';
 import '../styles/Header.css';
+import WaitlistModal from './WaitlistModal';
 
 const Header: React.FC = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [waitlistOpen, setWaitlistOpen] = useState(false);
 
   const closeMenu = () => setMenuOpen(false);
 
   return (
     <>
+      <div className="announcement-bar">
+        <span className="announcement-bar__text">
+          Launching mid-June. Picking select waitlist members for early beta access.
+        </span>
+        <button
+          type="button"
+          className="announcement-bar__link"
+          onClick={() => setWaitlistOpen(true)}
+        >
+          Join waitlist&nbsp;&rarr;
+        </button>
+      </div>
       <header className="header">
         <div className="header__left">
           <div className="header__logo">
@@ -57,6 +71,8 @@ const Header: React.FC = () => {
           </div>
         </div>
       )}
+
+      <WaitlistModal open={waitlistOpen} onClose={() => setWaitlistOpen(false)} />
     </>
   );
 };

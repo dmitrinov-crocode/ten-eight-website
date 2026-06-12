@@ -1,0 +1,142 @@
+.waitlist-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 300;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(4px);
+  animation: waitlist-fade 0.2s ease;
+}
+
+.waitlist-modal {
+  position: relative;
+  width: 100%;
+  max-width: 420px;
+  padding: 40px 32px 32px;
+  border-radius: 20px;
+  background: #161616;
+  border: 1px solid var(--white-7);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  animation: waitlist-pop 0.2s ease;
+}
+
+.waitlist-modal__close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.7;
+}
+
+.waitlist-modal__close:hover {
+  opacity: 1;
+}
+
+.waitlist-modal__close img {
+  width: 20px;
+  height: 20px;
+}
+
+.waitlist-modal__title {
+  font-family: 'Geist', sans-serif;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 32px;
+  color: white;
+  margin-bottom: 8px;
+}
+
+.waitlist-modal__subtitle {
+  font-family: 'Geist', sans-serif;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 22px;
+  color: var(--white-50);
+  margin-bottom: 24px;
+}
+
+.waitlist-modal__form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.waitlist-modal__input {
+  width: 100%;
+  padding: 14px 16px;
+  border-radius: 12px;
+  background: var(--white-3);
+  border: 1px solid var(--white-7);
+  color: white;
+  font-family: 'Geist', sans-serif;
+  font-size: 15px;
+  line-height: 20px;
+  outline: none;
+  transition: border-color 0.15s ease;
+}
+
+.waitlist-modal__input::placeholder {
+  color: var(--white-30);
+}
+
+.waitlist-modal__input:focus {
+  border-color: #6dfb48;
+}
+
+.waitlist-modal__input--error {
+  border-color: #ff5c5c;
+}
+
+.waitlist-modal__error {
+  font-family: 'Geist', sans-serif;
+  font-size: 13px;
+  line-height: 18px;
+  color: #ff5c5c;
+}
+
+.waitlist-modal__submit {
+  margin-top: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 14px 16px;
+  border: none;
+  border-radius: 30px;
+  background: linear-gradient(90deg, #cbff00 0%, #07f499 100%);
+  box-shadow: 0px 0px 10px rgba(109, 251, 72, 0.5);
+  font-family: 'Geist', sans-serif;
+  font-weight: 500;
+  font-size: 15px;
+  color: rgba(13, 13, 13, 0.85);
+  cursor: pointer;
+}
+
+.waitlist-modal__submit:disabled,
+.waitlist-modal__input:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.waitlist-modal__success {
+  text-align: center;
+}
+
+@keyframes waitlist-fade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes waitlist-pop {
+  from { opacity: 0; transform: translateY(8px) scale(0.98); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
