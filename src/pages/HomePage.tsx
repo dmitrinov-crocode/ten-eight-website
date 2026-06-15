@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import Header from '../components/Header';
 import HeroSection from '../components/HeroSection';
 import FeaturesSection from '../components/FeaturesSection';
@@ -9,6 +10,15 @@ import Footer from '../components/Footer';
 import { useDocumentHead } from '../hooks/useDocumentHead';
 
 const HomePage: React.FC = () => {
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.hash) {
+      const el = document.getElementById(location.hash.slice(1));
+      if (el) el.scrollIntoView({ behavior: 'smooth' });
+    }
+  }, [location.hash]);
+
   useDocumentHead({
     title: '10-8 — Every Fight Starts Here | Bets, News & Fantasy',
     description:
