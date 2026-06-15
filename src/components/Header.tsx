@@ -1,12 +1,17 @@
 import React, { useState } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import '../styles/Header.css';
 import WaitlistModal from './WaitlistModal';
 
 const Header: React.FC = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [waitlistOpen, setWaitlistOpen] = useState(false);
+  const location = useLocation();
+  const isHome = location.pathname === '/';
 
   const closeMenu = () => setMenuOpen(false);
+
+  const anchor = (hash: string) => (isHome ? hash : `/${hash}`);
 
   return (
     <>
@@ -25,15 +30,21 @@ const Header: React.FC = () => {
       <header className="header">
         <div className="header__left">
           <div className="header__logo">
-            <img src="/icon/logo.svg" alt="10-8 fight app logo" />
+            {isHome ? (
+              <img src="/icon/logo.svg" alt="10-8 fight app logo" />
+            ) : (
+              <Link to="/" aria-label="Back to home">
+                <img src="/icon/logo.svg" alt="10-8 fight app logo" />
+              </Link>
+            )}
           </div>
           <nav className="header__nav">
-            <a href="#features">Features</a>
-            <a href="#reviews">Reviews</a>
-            <a href="#highlights">Highlights</a>
+            <a href={anchor('#features')}>Features</a>
+            <a href={anchor('#reviews')}>Reviews</a>
+            <a href={anchor('#highlights')}>Highlights</a>
           </nav>
         </div>
-        <a href="#download" className="header__cta header__cta--desktop">
+        <a href={anchor('#download')} className="header__cta header__cta--desktop">
           Download App
         </a>
         <button
@@ -58,14 +69,14 @@ const Header: React.FC = () => {
           </div>
           <div className="mobile-menu__body">
             <nav className="mobile-menu__nav">
-              <a href="#features" onClick={closeMenu}>Features</a>
+              <a href={anchor('#features')} onClick={closeMenu}>Features</a>
               <div className="mobile-menu__divider" />
-              <a href="#reviews" onClick={closeMenu}>Reviews</a>
+              <a href={anchor('#reviews')} onClick={closeMenu}>Reviews</a>
               <div className="mobile-menu__divider" />
-              <a href="#highlights" onClick={closeMenu}>Highlights</a>
+              <a href={anchor('#highlights')} onClick={closeMenu}>Highlights</a>
               <div className="mobile-menu__divider" />
             </nav>
-            <a href="#download" className="mobile-menu__cta" onClick={closeMenu}>
+            <a href={anchor('#download')} className="mobile-menu__cta" onClick={closeMenu}>
               Download App
             </a>
           </div>
