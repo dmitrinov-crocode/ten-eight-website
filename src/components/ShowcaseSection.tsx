@@ -54,23 +54,39 @@ const ShowcaseSection: React.FC = () => {
             className={`showcase__image${activeIndex === i ? ' showcase__image--active' : ''}`}
           >
             <picture>
-              <source type="image/webp" srcSet={image.replace(/\.png$/, '.webp')} />
+              <source
+                type="image/webp"
+                srcSet={`${image} 2200w`}
+                sizes="(max-width: 768px) 0px, 100vw"
+              />
               <img
                 src={image}
+                srcSet={`${image} 2200w`}
+                sizes="(max-width: 768px) 0px, 100vw"
                 alt={slideAlts[i]}
                 className="showcase__slide-image showcase__slide-image--desktop"
-                loading="lazy"
-                decoding="async"
+                loading={i === 0 ? 'eager' : 'lazy'}
+                decoding="sync"
+                width={2200}
+                height={884}
               />
             </picture>
             <picture>
-              <source type="image/webp" srcSet={images_mobile[i].replace(/\.png$/, '.webp')} />
+              <source
+                type="image/webp"
+                srcSet={`${images_mobile[i]} 912w`}
+                sizes="(max-width: 768px) 304px, 0px"
+              />
               <img
                 src={images_mobile[i]}
+                srcSet={`${images_mobile[i]} 912w`}
+                sizes="(max-width: 768px) 304px, 0px"
                 alt={slideAlts[i]}
                 className="showcase__slide-image showcase__slide-image--mobile"
-                loading="lazy"
-                decoding="async"
+                loading={i === 0 ? 'eager' : 'lazy'}
+                decoding="sync"
+                width={912}
+                height={912}
               />
             </picture>
           </div>

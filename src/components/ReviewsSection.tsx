@@ -11,17 +11,17 @@ const reviews: Review[] = [
   {
     name: 'Maya R.',
     quote: 'Checking odds and news in one place makes fight night way easier',
-    avatar: '/image/avatar-1.svg',
+    avatar: '/image/avatar-1.png',
   },
   {
     name: 'Jordan K.',
     quote: 'The ex-fighter picks are the best part. It feels like getting inside info',
-    avatar: '/image/avatar-2.svg',
+    avatar: '/image/avatar-2.png',
   },
   {
     name: 'Alyssa S.',
     quote: 'Fantasy leagues and fight news keep me locked in all week',
-    avatar: '/image/avatar-3.svg',
+    avatar: '/image/avatar-3.png',
   },
 ];
 
