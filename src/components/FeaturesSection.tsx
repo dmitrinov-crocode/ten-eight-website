@@ -56,14 +56,14 @@ const FeaturesSection: React.FC = () => {
           <p>and sharp fight insight</p>
         </div>
       </div>
-      <video
+      {/* <video
         className="features__video"
         src="/video/fight-night.mp4"
         autoPlay
         muted
         loop
         playsInline
-      />
+      /> */}
       <div className="features__list">
         <div className="features__row">
           {cards.slice(0, 3).map((card) => (

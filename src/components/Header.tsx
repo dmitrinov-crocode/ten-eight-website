@@ -15,7 +15,7 @@ const Header: React.FC = () => {
 
   return (
     <>
-      <div className="announcement-bar">
+      {/* <div className="announcement-bar">
         <span className="announcement-bar__text">
           Launching mid-June. Picking select waitlist members for early beta access.
         </span>
@@ -26,7 +26,7 @@ const Header: React.FC = () => {
         >
           Join waitlist&nbsp;&rarr;
         </button>
-      </div>
+      </div> */}
       <header className="header">
         <div className="header__left">
           <div className="header__logo">
